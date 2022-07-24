@@ -2,7 +2,7 @@
 
 **Decentralized storage and file management for climate data**
 
-The Paris Climate Accord was a momentous accomplishment, uniting all the world's nations in an effort to tackle climate change. ClimateDataPool intends to unite the reporting of all the nations on a blockchain.
+The Paris Climate Accord was a momentous accomplishment, uniting all the world's nations in an effort to tackle climate change. Lush intends to unite the reporting of all the nations on a blockchain.
 
 Our objective with this project is to build an IPFS/Filecoin-based file management app for collecting and sharing climate data, and then go a step further to help organize and visualize the data for the end consuner, which can be Green Tech companies or Web3 DAO's
 
