@@ -14,5 +14,4 @@ The technical flow of this diagram is as follows
 
 We are on democratizing the Climate Change Data via the Decentralized web, so as to empower other developers and companies to build greener tech
 
-
-![image](https://user-images.githubusercontent.com/109896515/180645858-795bd6c9-5213-4500-83d5-088903d782bb.png)
+![image](https://user-images.githubusercontent.com/109896515/180645896-6a663ae9-d24e-489b-b1e4-d7eb26d12aff.png)
