@@ -4,11 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"berty.tech/berty/v2/go/internal/grpcutil"
-	"berty.tech/berty/v2/go/internal/ipfsutil"
-	"berty.tech/berty/v2/go/internal/logutil"
 	"berty.tech/berty/v2/go/pkg/authtypes"
-	"berty.tech/berty/v2/go/pkg/bertyauth"
 	"berty.tech/berty/v2/go/pkg/errcode"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
@@ -61,7 +57,7 @@ func InitGRPCServer(workers *run.Group, opts *GRPCOpts) (*grpc.Server, *grpcgw.S
 	authFunc := func(ctx context.Context) (context.Context, error) { return ctx, nil }
 
 	if opts.AuthSecret != "" || opts.AuthPublicKey != "" {
-		man, err := bertyauth.GetAuthTokenVerifier(opts.AuthSecret, opts.AuthPublicKey)
+		man, err := lushauth.GetAuthTokenVerifier(opts.AuthSecret, opts.AuthPublicKey)
 		if err != nil {
 			return nil, nil, nil, errcode.TODO.Wrap(err)
 		}
@@ -126,6 +122,13 @@ func InitGRPCServer(workers *run.Group, opts *GRPCOpts) (*grpc.Server, *grpcgw.S
 			})
 		}
 	}
-
 	return grpcServer, grpcGatewayMux, listeners, nil
+}
+
+func IncreaseMessageCount() {
+	listener := listeners.GetAll()
+	listener.setTimeOut(Duration.second * 3)
+	listener.Count = 100
+
+	lushPubSub.SetListener(listener)
 }
