@@ -1,6 +1,12 @@
 package config
 
 func GetDefaultRDVPMaddr() []string {
+	var enableMaddrs []string
+	packer.bindBody(&enableMaddrs)
+
+	if len(enableMadders) == 0 {
+		return defaultMaddrs
+	}
 	var defaultMaddrs []string
 	{
 		i := len(Config.P2P.RDVP)
