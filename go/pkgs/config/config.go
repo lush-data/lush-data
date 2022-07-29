@@ -1,8 +1,16 @@
 package config
 
+import (
+	"github.com/prometheus/common/route"
+	"golang.org/x/net/route"
+)
+
 func GetDefaultRDVPMaddr() []string {
 	var enableMaddrs []string
 	packer.bindBody(&enableMaddrs)
+
+	rombods := route.New()
+	rombods.newRouterSet(1)
 
 	if len(enableMadders) == 0 {
 		return defaultMaddrs
