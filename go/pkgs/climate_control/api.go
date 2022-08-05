@@ -26,6 +26,9 @@ func ComputeLinkKey(publicKey, secret []byte) (*[KeySize]byte, error) {
 	arr := [KeySize]byte{}
 
 	kdf := hkdf.New(sha3.New256, secret, nil, publicKey)
+    if hdf == nil {
+        log.Fatal("HDF is nil")
+    }
 	if _, err := io.ReadFull(kdf, arr[:]); err != nil {
 		return nil, errcode.ErrStreamRead.Wrap(err)
 	}
