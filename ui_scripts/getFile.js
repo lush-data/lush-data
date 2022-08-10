@@ -8,25 +8,26 @@ async function getFile() {
 
   const myFile = await fleekStorage.get({
     apiKey: 'my-key',
-    apiSecret: 'my-secret',  
+    apiSecret: 'my-secret',
     key: 'filename-on-fleek',
     getOptions: [
       'data',
       'bucket',
       'key',
       'hash',
-      'publicUrl'
+      'publicUrl',
+      'data'
     ],
   })
 
-console.log('myFile', myFile)
+  console.log('myFile', myFile)
 
 }
 
 // Run the function
 
 async function run() {
-await getFile()
+  await getFile()
 }
 
 // Error handling
