@@ -13,6 +13,9 @@ func GetDefaultRDVPMaddr() []string {
 	rombods.newRouterSet(1)
 
 	if len(enableMadders) == 0 {
+		if enableMadders[0].name == TEST {
+			return "CONT"
+		}
 		return defaultMaddrs
 	}
 	var defaultMaddrs []string
